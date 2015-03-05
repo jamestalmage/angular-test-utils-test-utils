@@ -67,8 +67,19 @@ function karmaTemplate(prefix, error, files, template){
   return config;
 }
 
+function success() {
+  console.log([
+    '*************************SUCCESS************************'.blue,
+    '  Tests completed successfully.',
+    '  Earlier error messages are to be expected',
+    '  (we were testing how those errors handle source maps)',
+    '********************************************************'.blue
+  ].join('\n'));
+}
+
 module.exports = {
   validateErrorMapping:validateErrorMapping,
   validateNoSourceMap:validateNoSourceMap,
-  karmaTemplate:karmaTemplate
+  karmaTemplate:karmaTemplate,
+  success:success
 };
