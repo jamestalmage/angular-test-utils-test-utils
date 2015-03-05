@@ -1,5 +1,6 @@
 var fs = require('fs');
 var convert = require('convert-source-map');
+var merge = require('merge');
 
 /*
  creates a callback for karma, that upon test completion will:
@@ -35,7 +36,39 @@ function validateNoSourceMap(path){
   }
 }
 
+var port = 9876;
+function karmaTemplate(prefix, error, files, template){
+  var defaults = {
+    frameworks:['mocha'],
+
+    files:[],
+
+    port: port++,
+
+    browsers: [process.env.TRAVIS ? 'Firefox' : 'Chrome'],
+
+    reporters: ['junit'],
+
+    junitReporter:{
+      outputFile: 'build/' + prefix + (error ? '-error-report.xml' : '-report.xml')
+    },
+
+    singleRun: true,
+    autoWatch: false
+  };
+
+  var config = merge(defaults, template);
+  files.forEach(function(file){
+    file = file.replace("{prefix}", prefix);
+    file = file.replace("{error}", error ? '-error' : '');
+    config.files.push(file);
+  });
+
+  return config;
+}
+
 module.exports = {
   validateErrorMapping:validateErrorMapping,
-  validateNoSourceMap:validateNoSourceMap
+  validateNoSourceMap:validateNoSourceMap,
+  karmaTemplate:karmaTemplate
 };
