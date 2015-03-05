@@ -1,0 +1,22 @@
+{
+  "name": "angular-test-utils-test-utils",
+  "version": "0.0.1",
+  "description": "Helper utility for testing the various ng-test-utils plugins. Not for public consumption.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jamestalmage/angular-test-utils-test-utils.git"
+  },
+  "author": "James Talmage",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jamestalmage/angular-test-utils-test-utils/issues"
+  },
+  "homepage": "https://github.com/jamestalmage/angular-test-utils-test-utils",
+  "devDependencies": {
+    "convert-source-map": "^0.5.0"
+  }
+}
