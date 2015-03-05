@@ -47,7 +47,7 @@ function karmaTemplate(prefix, error, files, template){
 
     browsers: [process.env.TRAVIS ? 'Firefox' : 'Chrome'],
 
-    reporters: ['junit'],
+    reporters: ['dots','junit'],
 
     junitReporter:{
       outputFile: 'build/' + prefix + (error ? '-error-report.xml' : '-report.xml')
