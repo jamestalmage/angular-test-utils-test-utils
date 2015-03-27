@@ -1,7 +1,7 @@
 {
   "name": "angular-test-utils-test-utils",
   "version": "0.0.1",
-  "description": "Helper utility for testing the various ng-test-utils plugins. Not for public consumption.",
+  "description": "Helper utility for testing the various tang. Not for public consumption.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
